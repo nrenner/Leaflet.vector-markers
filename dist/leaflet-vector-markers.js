@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -81,15 +81,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	_leaflet2.default.VectorMarkers = _VectorMarkers3.default;
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -113,9 +113,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -138,18 +138,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var iconOptions = {
-	  iconSize: [30, 50],
-	  iconAnchor: [15, 50],
-	  popupAnchor: [2, -40],
-	  shadowAnchor: [39, 45],
-	  shadowSize: [54, 51],
+
+	  shadowUrl: 'images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  shadowSize: [41, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  tooltipAnchor: [16, -28],
 	  className: 'vector-marker',
 	  prefix: 'fa',
 	  spinClass: 'fa-spin',
 	  extraIconClasses: '',
 	  extraDivClasses: '',
 	  icon: 'home',
-	  markerColor: 'blue',
+	  // original Leaflet marker "middle" color (avarage HSL values between gradient stops)
+	  markerColor: '#338ACC',
 	  iconColor: 'white',
 	  viewBox: '0 0 32 52'
 	};
@@ -162,7 +165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Icon(options) {
 	    _classCallCheck(this, Icon);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Icon).call(this, options));
+	    var _this = _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, options));
 
 	    _leaflet2.default.Util.setOptions(_this, iconOptions);
 	    _leaflet2.default.Util.setOptions(_this, options);
@@ -188,13 +191,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return div;
 	    }
 	  }, {
-	    key: 'createShadow',
-	    value: function createShadow() {
-	      var div = document.createElement('div');
-	      this._setIconStyles(div, 'shadow');
-	      return div;
-	    }
-	  }, {
 	    key: '_createInner',
 	    value: function _createInner() {
 	      var i = document.createElement('i');
@@ -204,10 +200,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (options.extraClasses) {
 	        i.classList.add(options.extraClasses);
 	      }
-	      if (options.icon.slice(0, options.prefix.length + 1) === options.prefix + '-') {
-	        i.classList.add(options.icon);
-	      } else {
+	      if (options.prefix) {
 	        i.classList.add(options.prefix + '-' + options.icon);
+	      } else {
+	        i.classList.add(options.icon);
 	      }
 	      if (options.spin && typeof options.spinClass === 'string') {
 	        i.classList.add(options.spinClass);
@@ -256,7 +252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.default = Icon;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

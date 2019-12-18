@@ -1,18 +1,21 @@
 import Leaflet from 'leaflet'
 
 const iconOptions = {
-  iconSize: [ 30, 50 ],
-  iconAnchor: [ 15, 50 ],
-  popupAnchor: [ 2, -40 ],
-  shadowAnchor: [ 39, 45 ],
-  shadowSize: [ 54, 51 ],
+
+  shadowUrl: 'images/marker-shadow.png',
+  iconSize:    [25, 41],
+  shadowSize:  [41, 41],
+  iconAnchor:  [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],    
   className: 'vector-marker',
   prefix: 'fa',
   spinClass: 'fa-spin',
   extraIconClasses: '',
   extraDivClasses: '',
   icon: 'home',
-  markerColor: 'blue',
+  // original Leaflet marker "middle" color (avarage HSL values between gradient stops)
+  markerColor: '#338ACC',
   iconColor: 'white',
   viewBox: '0 0 32 52',
 }
@@ -40,12 +43,6 @@ export default class Icon extends Leaflet.Icon {
     options.className += options.className.length > 0 ? ' ' + options.extraDivClasses : options.extraDivClasses
     this._setIconStyles(div, 'icon')
     this._setIconStyles(div, `icon-${options.markerColor}`)
-    return div
-  }
-
-  createShadow() {
-    const div = document.createElement('div')
-    this._setIconStyles(div, 'shadow')
     return div
   }
 

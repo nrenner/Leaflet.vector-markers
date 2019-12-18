@@ -19,31 +19,15 @@ Version: 0.0.6
   .vector-marker.not-accepted {
     opacity: 0.5; }
 
-.vector-marker-shadow:before {
-  bottom: -13px;
-  box-shadow: 35px -10px 10px rgba(0, 0, 0, 0.4);
-  content: "";
-  height: 40%;
-  position: absolute;
-  right: 21px;
-  -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: skew(150deg) rotate(-40deg);
-      -ms-transform: skew(150deg) rotate(-40deg);
-          transform: skew(150deg) rotate(-40deg);
-  width: 60%;
-  z-index: -1; }
-
 .vector-marker i {
   position: absolute;
-  top: 8px;
+  top: 7px;
   left: 0;
   width: 32px;
   color: #333;
   margin: auto;
   display: inline-block;
-  font-size: 14px; }
+  font-size: 11px; }
 
 .vector-marker i.maki-icon {
   width: 24px;
